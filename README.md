@@ -1,3 +1,6 @@
+This is a proof of concept project which can be viewed here: https://demartsc.github.io/tableau-embed-key-nav/ and was created to support this blog: (to be provided soon, once published). The rest of the readme content below is from create-react-app which was used to start up this effort. 
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
