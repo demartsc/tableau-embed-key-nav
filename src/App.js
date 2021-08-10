@@ -210,7 +210,14 @@ const App = () => {
     const drawShadowChart = (data, sheet) => {
       // console.log('drawShadowChart', data, sheet);
       // create shadowChart
-        const shadowElements = select(shadowContainer.current).append('g').attr('class', 'bar-group');
+        const shadowElements = select(shadowContainer.current)
+          .append('g')
+          .attr('class', 'bar-group')
+          .on('mouseover', (event, d) => {
+            console.log('what do we got', event, d);
+            // sheet.selectMarksAsync("Player", d["Player"], window.tableau.SelectionUpdateType.REPLACE);
+          });
+          // .on('mouseout', (event, d) => shadowUnfocus(event, d, sheet));
 
         // before we bind data, let's dedup what Tableau is sending us, probably a better way to do this
         const dedupData = data.map(d => {
@@ -242,8 +249,8 @@ const App = () => {
           .attr('data-id', d => `${d['Game']}-${d['Player']}`)
           .attr('height', 0.01)
           .attr('width', 0.01)
-          .attr('x', (_, i) => 0)
-          .attr('y', (_, i) => 0)
+          .attr('x', -100)
+          .attr('y', 0)
           .attr('fill', 'grey')
           // .on('click', !this.suppressEvents ? d => this.onClickHandler(d) : null)
           .on('mouseover', (event, d) => shadowFocus(event, d, sheet))
@@ -303,6 +310,9 @@ const App = () => {
 
   return (
     <div className="tableau-keyboard-navigation">
+      <h2>This is a proof of concept application</h2>
+      <h4>This demonstration is an attempt to enable keyboard navigation directly on a Tableau visualization. You will navigate to additional instructions next.</h4>
+      <h5>Note: once the chart is focused, hit enter a second time to start keyboard navigating the bars.</h5>
       <div className="o-layout">
         <div className="o-layout--chart">
           <KeyboardInstructions
@@ -315,8 +325,8 @@ const App = () => {
              hasCousinNavigation={true}
              disabled={false}
           />
-          <div class="shadow-d3-viz-conatiner">
-            <svg ref={shadowContainer} height={1} width={1} />
+          <div className="shadow-d3-viz-conatiner">
+            <svg ref={shadowContainer} height={535} width={810} />
           </div>
         </div>
       </div>

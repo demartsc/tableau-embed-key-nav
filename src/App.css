@@ -46,3 +46,15 @@
   height: 1px;
   overflow: hidden;
 }
+
+.tableau-keyboard-navigation { 
+  padding-top: 15px;
+}
+
+.o-layout { 
+  padding-top: 15px;
+}
+
+.shadow-d3-viz-conatiner svg { 
+  position: fixed;
+}
