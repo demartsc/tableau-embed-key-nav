@@ -321,7 +321,7 @@ const App = () => {
              groupName={'bar group'}
              chartTag={'bar-chart'}
              width={800}
-             isInteractive={true}
+             isInteractive={false}
              hasCousinNavigation={true}
              disabled={false}
           />
